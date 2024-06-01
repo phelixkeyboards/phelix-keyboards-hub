@@ -1,0 +1,23 @@
+{
+  "name": "phelix-keyboards-hub",
+  "version": "1.0.0",
+  "description": "Application to manage a phelix keyboard",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shawnfelix/phelix-keyboards-hub.git"
+  },
+  "author": "Shawn Felix",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/shawnfelix/phelix-keyboards-hub/issues"
+  },
+  "homepage": "https://github.com/shawnfelix/phelix-keyboards-hub#readme",
+  "devDependencies": {
+    "electron": "^30.0.6"
+  }
+}
