@@ -1,4 +1,4 @@
-name: 'Check Branch'
+name: 'Merge Branch Target Check'
 
 on:
   pull_request:
