@@ -2,7 +2,7 @@
   "name": "pkh",
   "productName": "pkh",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Phelix Keyboards Hub connects with a Phelix Keyboard to manage and configure settings and preferences",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
@@ -45,10 +45,10 @@
     "electron"
   ],
   "author": {
-    "name": "Alfayed Baksh",
-    "email": "baksha97@gmail.com"
+    "name": "phelixkeyboards",
+    "email": "phelixkeyboards@gmail.com"
   },
-  "license": "MIT",
+  "license": "UNLICENSED",
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1",
     "node-hid": "^3.1.0"
