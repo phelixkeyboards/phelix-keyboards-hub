@@ -6,6 +6,7 @@
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
+    "postinstall": "electron-rebuild --force",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
@@ -27,6 +28,7 @@
     "@vercel/webpack-asset-relocator-loader": "^1.7.3",
     "css-loader": "^6.11.0",
     "electron": "30.1.0",
+    "electron-rebuild": "^3.2.9",
     "eslint": "^8.57.0",
     "eslint-plugin-import": "^2.29.1",
     "fork-ts-checker-webpack-plugin": "^7.3.0",
@@ -36,7 +38,12 @@
     "ts-node": "^10.9.2",
     "typescript": "~4.5.4"
   },
-  "keywords": [],
+  "keywords": [
+    "hid",
+    "node-hid",
+    "usb",
+    "electron"
+  ],
   "author": {
     "name": "Alfayed Baksh",
     "email": "baksha97@gmail.com"
