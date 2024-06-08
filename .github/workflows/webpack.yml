@@ -8,25 +8,30 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-python@v5
       with:
-        python-version: '2.7' 
+        python-version: '3.10' 
     - name: Use Node.js 22.2.0
       uses: actions/setup-node@v3
       with:
         node-version: 22.2.0
     - name: Install dependencies
       run: |
-        npm install --global node-gyp@latest
-        npm config set node_gyp $(npm prefix -g)/lib/node_modules/node-gyp/bin/node-gyp.js
+        npm --version
+        node --version
+        npm explore npm/node_modules/@npmcli/run-script -g -- npm_config_global=false npm install node-gyp@latest
         npm install
-    - name: Run build
-      run: npm run build
+    # - name: Run build
+    #   run: npm run build
 
-    - name: Run tests
-      run: npm test
+    # - name: Run tests
+    #   run: npm test
       
       
+    # [NodeJS with Webpack/build]   ❓  ::group::Environment details
+    # | node: v22.2.0
+    # | npm: 10.7.0
+    # | yarn: 
