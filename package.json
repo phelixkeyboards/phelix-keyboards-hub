@@ -1,27 +1,56 @@
 {
-  "name": "phelix-keyboards-hub",
+  "name": "pkh",
+  "productName": "pkh",
   "version": "1.0.0",
-  "description": "Application to manage a phelix keyboard",
-  "main": "main.js",
+  "description": "Phelix Keyboards Hub connects with a Phelix Keyboard to manage and configure settings and preferences",
+  "main": ".webpack/main",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .",
-    "debug": "electron . --inspect"
+    "start": "electron-forge start",
+    "postinstall": "electron-rebuild --force",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint --ext .ts,.tsx ."
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shawnfelix/phelix-keyboards-hub.git"
-  },
-  "author": "Shawn Felix",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/shawnfelix/phelix-keyboards-hub/issues"
-  },
-  "homepage": "https://github.com/shawnfelix/phelix-keyboards-hub#readme",
   "devDependencies": {
-    "electron": "^30.0.6"
+    "@electron-forge/cli": "^7.4.0",
+    "@electron-forge/maker-deb": "^7.4.0",
+    "@electron-forge/maker-rpm": "^7.4.0",
+    "@electron-forge/maker-squirrel": "^7.4.0",
+    "@electron-forge/maker-zip": "^7.4.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
+    "@electron-forge/plugin-fuses": "^7.4.0",
+    "@electron-forge/plugin-webpack": "^7.4.0",
+    "@electron/fuses": "^1.8.0",
+    "@types/electron": "^1.6.10",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "@vercel/webpack-asset-relocator-loader": "^1.7.3",
+    "css-loader": "^6.11.0",
+    "electron": "30.1.0",
+    "electron-rebuild": "^3.2.9",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.29.1",
+    "fork-ts-checker-webpack-plugin": "^7.3.0",
+    "node-loader": "^2.0.0",
+    "style-loader": "^3.3.4",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "~4.5.4"
   },
+  "keywords": [
+    "hid",
+    "node-hid",
+    "usb",
+    "electron"
+  ],
+  "author": {
+    "name": "phelixkeyboards",
+    "email": "phelixkeyboards@gmail.com"
+  },
+  "license": "UNLICENSED",
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.1",
     "node-hid": "^3.1.0"
   }
 }
