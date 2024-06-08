@@ -19,8 +19,10 @@ jobs:
       with:
         node-version: 22.2.0
     - name: Install dependencies
-      run: npm install
-  
+      run: |
+        npm install --global node-gyp@latest
+        npm config set node_gyp $(npm prefix -g)/lib/node_modules/node-gyp/bin/node-gyp.js
+        npm install
     - name: Run build
       run: npm run build
 
