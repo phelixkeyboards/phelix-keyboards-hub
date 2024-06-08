@@ -3,13 +3,64 @@
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>Hello World!</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      #devices {
+        white-space: pre-wrap; /* Preserve whitespace for JSON formatting */
+      }
+    </style> 
+    <link rel="stylesheet" href="styles.css"> 
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <h1>Devices</h1>
+    <button id="sendTimeButton">Send current time to keyboard</button>
+    <div class="container">
+      <div class="column" style="background-color: lightcoral;">
+        <button id="listDevicesButton">List all devices</button>
+        <pre id="devices"></pre>
+      </div>
+      <div class="column" style="background-color: rgb(197, 197, 197);">
+        <button id="listPKDevicesButton">List Connected Phelix Keyboard</button>
+        <pre id="pkdevices" style="background-color: rgb(167, 166, 219);"></pre>
+      </div>
+    </div>
+    <script>
+      const listPKDevices = document.getElementById('listPKDevicesButton');
+      const listDevicesButton = document.getElementById('listDevicesButton');
+      const sendTimeButton = document.getElementById('sendTimeButton');
+      const devicesPre = document.getElementById('devices');
+  
+      listPKDevicesButton.addEventListener('click', () => {
+        window.electronAPI.listPKDevices();
+      });
+      listDevicesButton.addEventListener('click', () => {
+        window.electronAPI.listHidDevices();
+      });
+      sendTimeButton.addEventListener('click', () => {
+        window.electronAPI.sendTime();
+      });
+  
+      window.electronAPI.onHidDevices((devices) => {
+        if (devices) {
+          devicesPre.textContent = JSON.stringify(devices, null, 2);
+        } else {
+          devicesPre.textContent = "No HID devices found.";
+        }
+      });
+      window.electronAPI.onHidPKDevices((devices) => {
+        if (devices) {
+          devicesPre.textContent = JSON.stringify(devices, null, 2);
+        } else {
+          devicesPre.textContent = "No phelix keyboard found.";
+        }
+      });
+    </script>
     We are using Node.js <span id="node-version"></span>,
     Chromium <span id="chrome-version"></span>,
     and Electron <span id="electron-version"></span>.
   </body>
+
 </html>
