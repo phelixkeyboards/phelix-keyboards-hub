@@ -1,0 +1,42 @@
+name: NodeJS with Webpack
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request: 
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup linux for node-gyp
+      run: |
+        apt-get update
+        apt-get install -y build-essential
+        apt-get install -y libusb-1.0-0-dev
+        apt-get install -y libudev-dev
+        apt-get install -y libusb-1.0-0-dev
+        apt-get install -y libudev-dev
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.10' 
+    - name: Use Node.js 22.2.0
+      uses: actions/setup-node@v3
+      with:
+        node-version: 22.2.0
+    - name: Install dependencies
+      run: |
+        npm install
+    # - name: Run build
+    #   run: npm run build
+
+    # - name: Run tests
+    #   run: npm test
+      
+      
+    #  apt-get install libusb-1.0-0-dev
+    #  apt-get install libudev-dev
+    # | npm: 10.7.0
+    # | yarn: 
