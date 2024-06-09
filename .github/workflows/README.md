@@ -52,48 +52,134 @@ That's it! You can now run GitHub Actions workflows locally using `act`. This al
 For more information on using `act`, refer to the [official documentation](https://github.com/nektos/act).
 
 
-#### This is broken...
+#### History for the fix 
 
 ```sh
-| > pkh@1.0.0 postinstall
-| > electron-rebuild --force
-| 
-| - Searching dependency tree
-| (node:136) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
-| (Use `node --trace-deprecation ...` to show where the warning was created)
-| Package libusb-1.0 was not found in the pkg-config search path.
-| Perhaps you should add the directory containing `libusb-1.0.pc'
-| to the PKG_CONFIG_PATH environment variable
-| No package 'libusb-1.0' found
-| make: Entering directory '/Users/travis/projects/phelix-keyboards-hub/node_modules/node-hid/build'
-|   CC(target) Release/obj.target/hidapi/hidapi/libusb/hid.o
-| ../hidapi/libusb/hid.c:43:10: fatal error: libusb.h: No such file or directory
-|    43 | #include <libusb.h>
-|       |          ^~~~~~~~~~
-| compilation terminated.
-| make: *** [hidapi.target.mk:122: Release/obj.target/hidapi/hidapi/libusb/hid.o] Error 1
-| make: Leaving directory '/Users/travis/projects/phelix-keyboards-hub/node_modules/node-hid/build'
-| Error: `make` failed with exit code: 2
-|     at ChildProcess.onExit (/Users/travis/projects/phelix-keyboards-hub/node_modules/node-gyp/lib/build.js:203:23)
-|     at ChildProcess.emit (node:events:520:28)
-|     at ChildProcess._handle.onexit (node:internal/child_process:294:12)
-| 
-| ✖ Rebuild Failed
-| 
-| An unhandled error occurred inside electron-rebuild
-| node-gyp failed to rebuild '/Users/travis/projects/phelix-keyboards-hub/node_modules/node-hid'
-| 
-| Error: node-gyp failed to rebuild '/Users/travis/projects/phelix-keyboards-hub/node_modules/node-hid'
-|     at ChildProcess.<anonymous> (/Users/travis/projects/phelix-keyboards-hub/node_modules/@electron/rebuild/lib/module-type/node-gyp/node-gyp.js:118:24)
-|     at ChildProcess.emit (node:events:520:28)
-|     at ChildProcess._handle.onexit (node:internal/child_process:294:12)
-| npm error code 255
-| npm error path /Users/travis/projects/phelix-keyboards-hub
-| npm error command failed
-| npm error command sh -c electron-rebuild --force
-| 
-| npm error A complete log of this run can be found in: /root/.npm/_logs/2024-06-08T18_46_00_338Z-debug-0.log
-[NodeJS with Webpack/build]   ❌  Failure - Main Install dependencies
-[NodeJS with Webpack/build] exitcode '255': failure
-[NodeJS with Webpack/build] 🏁  Job failed
+npm install
+pkg-config --cflags --libs /usr/local/Cellar/libusb/1.0.20/lib/pkgconfig/libusb-1.0.pc
+pkg-config --cflags --libs libusb-1.0
+pkg-config --cflags --libs libusb
+npm install
+clear
+history
+sudo apt-get install libmagickwand-dev
+apt-get install libmagickwand-dev
+apt-get install libmagickwand-dev
+apt-get uninstall libmagickwand-dev
+apt-get remove libmagickwand-dev
+apt install libusb-dev libudev-dev
+npm install
+cat /root/.npm/_logs/2024-06-08T23_46_01_302Z-debug-0.log
+apt-get install libusb-1.0-0-dev
+apt-get install libudev-dev
+apt autoremove
+npm install
+ls
+git status
+git pull
+git status
+git checkout -b temp
+history >> history.txt
+ls
+cd ../media
+ls
+cd ../usr
+ls
+cd bin
+ls
+cd ..
+cd..
+clear
+apt-get update; apt install -y curl python-is-python3 pkg-config build-essential
+cd /home
+ls
+ls -la
+restart
+reboot
+ls
+pwd
+cd actions-runner/
+ls
+cd _work/
+ls
+cd phelix-keyboards-hub/
+ls
+cd phelix-keyboards-hub/
+ls
+npm install
+pkg-config --cflags --libs /usr/local/Cellar/libusb/1.0.20/lib/pkgconfig/libusb-1.0.pc
+pkg-config --cflags --libs libusb-1.0
+pkg-config --cflags --libs libusb
+npm install
+clear
+history
+sudo apt-get install libmagickwand-dev
+apt-get install libmagickwand-dev
+apt-get install libmagickwand-dev
+apt-get uninstall libmagickwand-dev
+apt-get remove libmagickwand-dev
+apt install libusb-dev libudev-dev
+npm install
+cat /root/.npm/_logs/2024-06-08T23_46_01_302Z-debug-0.log
+apt-get install libusb-1.0-0-dev
+apt-get install libudev-dev
+apt autoremove
+npm install
+ls
+git status
+git pull
+git status
+git checkout -b temp
+history >> history.txt
+ls
+cd ../media
+ls
+cd ../usr
+ls
+cd bin
+ls
+cd ..
+cd..
+clear
+apt-get update; apt install -y curl python-is-python3 pkg-config build-essential
+cd /home
+ls
+ls -la
+restart
+reboot
+ls
+pwd
+cd actions-runner/
+ls
+cd _work/
+ls
+cd phelix-keyboards-hub/
+ls
+cd phelix-keyboards-hub/
+ls
+npm install
+pkg-config --cflags --libs /usr/local/Cellar/libusb/1.0.20/lib/pkgconfig/libusb-1.0.pc
+pkg-config --cflags --libs libusb-1.0
+pkg-config --cflags --libs libusb
+npm install
+clear
+history
+sudo apt-get install libmagickwand-dev
+apt-get install libmagickwand-dev
+apt-get install libmagickwand-dev
+apt-get uninstall libmagickwand-dev
+apt-get remove libmagickwand-dev
+apt install libusb-dev libudev-dev
+npm install
+cat /root/.npm/_logs/2024-06-08T23_46_01_302Z-debug-0.log
+apt-get install libusb-1.0-0-dev
+apt-get install libudev-dev
+apt autoremove
+npm install
+ls
+git status
+git pull
+git status
+git checkout -b temp
+history >> history.txt
 ````

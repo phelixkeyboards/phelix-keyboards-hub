@@ -8,9 +8,17 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@v4
+    - name: Setup linux for node-gyp
+      run: |
+        apt-get update
+        apt-get install -y build-essential
+        apt-get install -y libusb-1.0-0-dev
+        apt-get install -y libudev-dev
+        apt-get install -y libusb-1.0-0-dev
+        apt-get install -y libudev-dev
     - uses: actions/setup-python@v5
       with:
         python-version: '3.10' 
@@ -20,9 +28,6 @@ jobs:
         node-version: 22.2.0
     - name: Install dependencies
       run: |
-        npm --version
-        node --version
-        npm explore npm/node_modules/@npmcli/run-script -g -- npm_config_global=false npm install node-gyp@latest
         npm install
     # - name: Run build
     #   run: npm run build
@@ -31,7 +36,7 @@ jobs:
     #   run: npm test
       
       
-    # [NodeJS with Webpack/build]   ❓  ::group::Environment details
-    # | node: v22.2.0
+    #  apt-get install libusb-1.0-0-dev
+    #  apt-get install libudev-dev
     # | npm: 10.7.0
     # | yarn: 
