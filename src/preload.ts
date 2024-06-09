@@ -25,7 +25,4 @@ contextBridge.exposeInMainWorld('electronAPI', {
       callback(devices);
     });
   },
-  sendTime: (): void => {
-    ipcRenderer.send('send-time');
-  },
 } as ElectronAPI);
