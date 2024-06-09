@@ -31,12 +31,16 @@ const createWindow = (): void => {
   mainWindow.webContents.openDevTools();
 
 
-  initConnection();
-  Clock.initTaskSendClock();
+  initTasks();
 };
 
-function initConnection() {
+function initKeyboardConnection() {
   KeyboardHID.openConnection();
+}
+
+function initTasks() {
+  initKeyboardConnection();
+  Clock.initTaskSendClock();
 }
 
 // This method will be called when Electron has finished
@@ -73,9 +77,4 @@ ipcMain.on('list-pk-devices', (event) => {
 ipcMain.on('list-hid-devices', (event) => {
   const devices = listHidDevices();
   event.reply('hid-devices', devices);
-});
-
-ipcMain.on('send-time', (event) => {
-  console.log("sending");
-  sendTime();
 });
