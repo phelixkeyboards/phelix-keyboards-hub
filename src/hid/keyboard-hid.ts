@@ -40,6 +40,8 @@ export function closeConnection() {
 
 export function sendPacket(packet: Packet){
     if (pkDevice) {
+        console.log(packet.headerToBinaryString());
+        console.log(packet.bodyToCharString());
         console.log(packet.toHexArray());
         pkDevice.write(packet.toHexArray());
     }

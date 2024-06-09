@@ -1,5 +1,5 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
-import { listPkDevices, listHidDevices, sendTime } from './hid/pkhid';
+import { listPkDevices, listHidDevices} from './hid/pkhid';
 import * as Clock from './components/clock/clock';
 import * as KeyboardHID from './hid/keyboard-hid';
 
