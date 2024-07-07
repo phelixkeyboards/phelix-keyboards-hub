@@ -86,9 +86,9 @@ export class Packet {
       return "seqNum: [" + this.seqNum.toString(2).padStart(16, '0') + "]\n"
         + "totalNum: [" + this.totalNumPackets.toString(2).padStart(16, '0') + "]\n"
         + "control: ["+ this.controlBits.toString(2).padStart(8, '0') + "]\n"
-        + "control packet type: ["+ this.controlBits.toString(2).substring(0, 4).padStart(5, '0') + "]\n"
-        + "control SOF flag: [" + this.controlBits.toString(2)[5] + "]\n"
-        + "control EOF flag: [" + this.controlBits.toString(2)[6] + "]\n";
+        + "control packet type: ["+ this.controlBits.toString(2).padStart(8, '0').substring(0, 5) + "]\n"
+        + "control SOF flag: [" + this.controlBits.toString(2).padStart(8)[5] + "]\n"
+        + "control EOF flag: [" + this.controlBits.toString(2).padStart(8)[6] + "]\n";
     }
     public bodyToCharString():String {
       return "Body stringified: " + String.fromCharCode(...this.data);
@@ -98,15 +98,18 @@ export class Packet {
       if (packetTypeId < 0 || packetTypeId > 31) {
         throw new Error("Number out of range. Must be between 0 and 31.");
       }
-      // set first 5 bits index 0-4
-      let controlBits = packetTypeId & 0x1F;
-      // set the sof bit (index 5)
-      controlBits = sof ? controlBits |= 1 << 5 : controlBits &= ~(1 << 5);
-      // set the eof bit (index 6)
-      controlBits = eof ? controlBits |= 1 << 6 : controlBits &= ~(1 << 6);
 
-      //unused last three (index 7-10)
-      controlBits &= 0x7F;
+      // Initialize controlBits with 0
+      let controlBits = 0;
+
+      // Set the first 5 bits (bits 0-4) to the packetTypeId
+      controlBits |= (packetTypeId & 0x1F) << 3;
+
+      // set the sof bit (index 5)
+      controlBits = sof ? controlBits |= (1 << 2) : controlBits &= ~(1 << 2);
+      // set the eof bit (index 6)
+      controlBits = eof ? controlBits |= (1 << 1) : controlBits &= ~(1 << 1);
+
       return controlBits;
     }
 

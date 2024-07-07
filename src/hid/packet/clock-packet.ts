@@ -3,7 +3,7 @@ import { Packet } from './packet';
 export class ClockPacket extends Packet {
 
     constructor(clockTime: string) {
-        let controlBits: number = Packet.buildControl(HIDConstants.Packets.CONTROL.CONTROL_EOF, true, true);
+        let controlBits: number = Packet.buildControl(HIDConstants.Packets.Feature.CLOCK_PACKET_ID, true, true);
         super(0, 1, controlBits);
         this.setBody(clockTime);
     }
